@@ -1,0 +1,330 @@
+html, body {
+    height: 100%;
+}
+
+.wow {
+    visibility: hidden;
+}
+
+#c {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    display: block;
+    height: 100%;
+}
+
+#header .img-container {
+    width: 150px;
+    height: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 20%;
+    display: block;
+    position: relative;
+}
+
+#header .me-img {
+    border-radius: 200px;
+}
+
+#header .head-title {
+    margin-top: 2%;
+    color: white;
+    font-family: 'Gugi', cursive;
+}
+
+#header .head-content {
+    margin-top: 2%;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#intro {
+    padding-top: 5%;
+    background: linear-gradient(to bottom, #090909, black);
+}
+
+#intro .intro-title {
+
+}
+
+#intro h3 {
+    color: #34ace0;
+    margin-left: -5%;
+    font-family: 'Gugi', cursive;
+}
+
+#intro .intro-content {
+    margin-top: 2%;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#intro .resume-btn {
+    margin-top: 15px;
+    color: #34ace0;
+    background-color: transparent;
+    border: solid 2px #34ace0;
+}
+
+#intro .resume-btn:hover {
+    color: black;
+    background-color: #34ace0;
+}
+
+#intro .img-container {
+    padding: 5%;
+}
+
+#intro .img-container:hover {
+    padding: 2%;
+}
+
+#intro .intro-holder, .ide-holder {
+    padding: 0 5%;
+}
+
+#skills {
+    padding-top: 5%;
+}
+
+#skills h3 {
+    color: #34ace0;
+    font-family: 'Gugi', cursive;
+    margin-bottom: 3%;
+}
+
+#skills h5 {
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+
+}
+
+#skills .skill-holder {
+    margin-left: 5%;
+    background: linear-gradient(to right, #34ace0, transparent);
+    z-index: 2;
+    margin-bottom: 1%
+}
+
+#skills .skill-tail {
+    margin-bottom: 1%;
+}
+
+#skills {
+    background-color: black;
+    padding-bottom: 5%;
+}
+
+#skills .skill-words {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-left: -65px;
+    z-index: 1;
+}
+
+#skills.skill-holder {
+    font-family: 'Source Code Pro', monospace;
+}
+
+#services {
+    background: black;
+}
+
+#services h3 {
+    font-family: 'Gugi', cursive;
+    color: #34ace0;
+}
+
+#services a {
+    font-family: 'Space Mono', monospace;
+    color: #34ace0;
+}
+
+#services a:hover {
+    color: #34ace0;
+}
+
+#services .service-des, .service-extra {
+    font-family: 'Space Mono', monospace;
+    color: #34ace0;
+
+}
+
+#services .service-extra {
+    font-size: 15px;
+    color: #34ace0;
+}
+
+#services .card {
+    padding: 15px 15px;
+    background-color: transparent;
+}
+
+#services .service-divider {
+    margin-top: 5px;
+    margin-bottom: 10%;
+    height: 1px;
+
+    background: linear-gradient(to right, #34ace0, #ffffff);
+}
+
+#services .service-img {
+    position: relative;
+}
+
+#services .img-overlay-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 0;
+    padding: 5% 5%;
+
+    transition: all 0.4s ease-in-out;
+}
+
+#services .img-overlay-holder:hover {
+    opacity: 1;
+    z-index: 1;
+}
+
+#services .img-overlay {
+
+}
+
+/*#services h3 {*/
+/*color: #34ace0;*/
+/*font-family: 'Gugi', cursive;*/
+/*}*/
+
+/*#services {*/
+/*background: black;*/
+/*padding-bottom: 5%;*/
+/*}*/
+
+/*#services h4 {*/
+/*color: #34ace0;*/
+/*}*/
+/*#services .card{*/
+/*background-color: transparent;*/
+/*}*/
+
+/*#services h5 {*/
+/*color: #34ace0;*/
+/*padding-top: 1%;*/
+/*}*/
+
+/*#services .service-divider {*/
+/*width: 100%;*/
+/*height: 1px;*/
+/*background: linear-gradient(to right, #34ace0, #ffffff);*/
+/*}*/
+
+/*#services .img-overlay-holder {*/
+/*z-index: 0;*/
+/*position: absolute;*/
+/*top: 0;*/
+/*left: 0;*/
+/*background-color: rgba(0, 0, 0, 0.5);*/
+/*background-position: center center;*/
+/*background-repeat: no-repeat;*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*opacity: 0;*/
+/*padding: 5% 5%;*/
+
+/*transition: all 0.4s ease-in-out;*/
+/*}*/
+
+/*#services .img-overlay-holder:hover {*/
+/*opacity: 1;*/
+/*z-index: 1;*/
+/*}*/
+
+#footer {
+    background: black;
+
+}
+
+#footer .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #34ace0, #ffffff);
+}
+
+#footer .footer-content {
+    color: white;
+    font-size: 10px;
+}
+
+#contact h3 {
+    color: #34ace0;
+    font-family: 'Gugi', cursive;
+    padding-bottom: 1%;
+}
+
+#contact {
+    background: black;
+    padding-bottom: 1%;
+}
+
+#contact p {
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#contact .contact-link {
+    color: white;
+}
+
+#contact .contact-content {
+    padding: 0 5%;
+}
+
+@media only screen and (max-width: 767px) {
+    #header .img-container {
+        margin-top: 30%;
+    }
+
+    #skills .skill-tail {
+
+        display: none;
+
+    }
+
+    #intro .img-container {
+        padding: 15%;
+    }
+
+    #skills .skill-holder h5 {
+        color: #34ace0;
+        font-size: 12px;
+    }
+
+    #skills .skill-holder {
+        margin-left: 30px;
+        border: 3px solid transparent;
+        border-image-source: linear-gradient(to bottom right, #34ace0, #00001a);
+        border-image-slice: 1;
+        /*border-image-width: 1;*/
+
+        background: transparent;
+    }
+
+    #services .service-img-container {
+        padding: 15% 15%;
+    }
+}
