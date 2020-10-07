@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+process.env.perform = 'PRO';
 var app = require('../app');
 var debug = require('debug')('chrisyao:server');
 var http = require('http');
@@ -14,7 +14,7 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-process.env.perform = 'PRO';
+
 
 /**
  * Create HTTP server.
