@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const cookeryRouter = require('./routes/cookery');
 
 const app = express();
 
@@ -30,15 +31,19 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules/bootstrap', express.static(__dirname + '/node_modules/bootstrap'));
+app.use('/node_modules/popper.js', express.static(__dirname + '/node_modules/popper.js'));
 app.use('/node_modules/jquery', express.static(__dirname + '/node_modules/jquery'));
 app.use('/node_modules/animate.css', express.static(__dirname + '/node_modules/animate.css'));
 app.use('/node_modules/wowjs', express.static(__dirname + '/node_modules/wowjs'));
 
 app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
+app.use('/cookery', cookeryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+
     next(createError(404));
 });
 

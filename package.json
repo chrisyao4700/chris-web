@@ -6,8 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@popperjs/core": "^2.5.3",
     "animate.css": "^3.6.1",
     "body-parser": "~1.18.2",
+    "bootstrap": "^4.5.2",
     "bootswatch": "^4.0.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
