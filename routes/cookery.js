@@ -77,7 +77,7 @@ async function requestGoogleZip(zipcode = '91709') {
     }
 }
 
-async function requestGoogleLatlng(lat = '33.122321', lng='-117.233221') {
+async function requestGoogleLatlng(lat = '34.134423', lng='-117.223234') {
     try {
 
         return await googleConn.findFormattedAddressWithLatlng(lat,lng);

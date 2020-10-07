@@ -20,7 +20,6 @@
             </div>
         </div>
 
-
         <div class="row <%= search_type==='zipcode'?'':'hidden'%>">
             <div class="col-12 pt-5 pb-3 bg-half" id="zip">
                 <form name="cm-search" method="get" action="/cookery/zipcode">
@@ -63,7 +62,7 @@
             <div class="col-12 pt-5 pb-3 bg-half" id="area">
                 <form name="cm-search" method="get" action="/cookery/area">
                     <div class="row">
-                        <div class="col-3 pl-5 pr-5">
+                        <div class="col-3 pl-0 pr-0 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5">
                             <div class="form-group">
                                 <label class="badge badge-lg badge-primary" for="category_select">Category</label>
                                 <select class="form-control form-control-md" id="category_select" name="category">
@@ -73,7 +72,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3 pl-5 pr-5">
+                        <div class="col-3 pl-0 pr-0 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5">
                             <div class="form-group">
                                 <label class="badge badge-lg badge-primary">Latitude</label>
                                 <input class="form-control" name="lat" placeholder="33.11232"
@@ -81,14 +80,14 @@
                             </div>
                         </div>
 
-                        <div class="col-3 pl-5 pr-5">
+                        <div class="col-3 pl-0 pr-0 pl-md-2 pr-md-2 pl-lg-5 pr-lg-5">
                             <div class="form-group">
                                 <label class="badge badge-lg badge-primary">Longtitude</label>
                                 <input class="form-control" name="lng" placeholder="-117.11232"
                                        value="<%= payload.query.lng %>"/>
                             </div>
                         </div>
-                        <div class="col-3 pl-5 pr-5">
+                        <div class="col-3 pl-0 pr-0 pl-md-2 pr-md-2 pl-lg-5 pr-lg-5">
                             <div class="form-group">
                                 <label class="badge badge-lg badge-primary">Radius</label>
                                 <input class="form-control" name="radius" placeholder="21"
@@ -104,11 +103,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </form>
             </div>
         </div>
@@ -121,13 +115,14 @@
 
         <div class="row">
             <div class="col-6 pt-3 pb-3 bg-half">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 25rem;">
                     <div class="card-header">
                         Result
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item <%=search_type === 'zipcode'?'':'hidden'%>">Zipcode: <%= payload.query.zipcode %></li>
-                        <li class="list-group-item <%=search_type === 'area'?'':'hidden'%>">Radius: <%= payload.query.radius %></li>
+                        <li class="list-group-item <%=search_type === 'area'?'':'hidden'%>">Radius: <%= payload.query.radius %>
+                            (<%=`${payload.query.lat}, ${payload.query.lng}`%>)</li>
                         <li class="list-group-item">Category: <%= payload.query.category %></li>
                         <li class="list-group-item">Location: <%= zipcity%></li>
                         <li class="list-group-item"><b>Count: </b><%= payload.count %></li>
