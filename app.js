@@ -15,7 +15,6 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
 if (process.env.perform === 'PRD') {
     app.get('*', (req, res, next) => {
         if (req.headers["x-forwarded-proto"] === "https") {

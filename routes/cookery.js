@@ -39,7 +39,7 @@ router.get('/area', async function (req, res, next) {
     });
 });
 
-async function requestCookeryZipcode(category = 'chinese', zipcode = '91709') {
+async function requestCookeryZipcode(category = 'mexican', zipcode = '90017') {
 
     try {
         return await cookeryConn.coreRequest('GET', ['count', 'zipcode'], {category, zipcode}, {}, {});
