@@ -8,14 +8,16 @@ router.get('/zipcode', async function (req, res, next) {
         const categories = ['chinese', 'mexican', 'japanese', 'fast', 'pizza', 'seafood', 'thai', 'italian', 'korean', 'american', 'sushi bar'];
         const {category, zipcode} = req.query;
         const payload = await requestCookeryZipcode(category, zipcode);
-        const {lat: ziplat, lng: ziplng} = await requestGoogleZip(zipcode);
+        const {lat: ziplat, lng: ziplng, city} = await requestGoogleZip(zipcode);
 
+        // console.log(ziplat)
         res.render('cookery/page_root', {
             title: 'Cookery Map API',
             type: 'count',
             ziplat: ziplat,
             ziplng: ziplng,
             categories: categories,
+            zipcity:city,
             payload: payload
         })
     } catch (e) {
@@ -48,9 +50,7 @@ async function requestCookeryZipcode(category = 'chinese', zipcode = '91709') {
 
 async function requestGoogleZip(zipcode = '91709') {
     try {
-        const result = await googleConn.searchZipcode(zipcode);
-        const {lat, lng} = result.geometry.location;
-        return {lat, lng};
+        return await googleConn.findFormattedAddress(zipcode);
     } catch (e) {
         throw e;
     }

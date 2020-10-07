@@ -4,8 +4,6 @@ const urlencode = require('urlencode');
 const coreRequest = (method, params = {}, query = {}, headers = {}, body = {}) => {
     //URL
 
-    console.log(process.env.perform);
-
     let opCore_url = process.env.perform === 'PRD' ? `http://ec2-54-241-150-145.us-west-1.compute.amazonaws.com/api/v0` : 'http://localhost:4725/api/v0';
     //params
     params.forEach(param => {

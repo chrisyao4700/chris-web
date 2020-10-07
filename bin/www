@@ -3,6 +3,8 @@
 /**
  * Module dependencies.
  */
+const dotenv = require('dotenv');
+dotenv.config();
 process.env.perform = 'PRD';
 var app = require('../app');
 var debug = require('debug')('chrisyao:server');
