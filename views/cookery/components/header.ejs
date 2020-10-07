@@ -10,29 +10,31 @@
 
         </div>
         <div class="row ">
-            <div class="col-12 pt-5 pb-3 bg-light" id="zip">
+            <div class="col-12 pt-5 pb-3 bg-half" id="zip">
                 <form name="cm-search" method="get" action="/cookery/zipcode">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-6 pl-5 pr-5">
                             <div class="form-group">
                                 <label class="badge badge-lg badge-primary" for="category_select">Category</label>
-                                <select class="form-control form-control-lg" id="category_select" name="category">
+                                <select class="form-control form-control-md" id="category_select" name="category">
                                     <% for(const ele of categories){ %>
                                         <option <%= payload.query.category === ele?'selected="selected"':''%>><%= ele %></option>
                                     <% } %>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 pl-5 pr-5">
                             <div class="form-group">
                                 <label class="badge badge-lg badge-primary">Zipcode</label>
-                                <input class="form-control" name="zipcode" placeholder="91709"
+                                <input class="form-control" name="zipcode" placeholder="91007"
                                        value="<%= payload.query.zipcode %>"/>
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Search</button>
+                            <div class="text-center pt-3">
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,7 @@
         </div>
 
         <div class="row">
-            <div class="col-6 pt-3 pb-3 bg-light">
+            <div class="col-6 pt-3 pb-3 bg-half">
                 <div class="card" style="width: 18rem;">
                     <div class="card-header">
                         Result
@@ -66,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="col-6 pt-3 pb-3 bg-light">
+            <div class="col-6 pt-3 pb-3 bg-half">
                 <div id="map"></div>
                 <script>
                     function initMap() {
