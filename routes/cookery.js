@@ -2,6 +2,15 @@ const express = require('express');
 const router = express.Router();
 const googleConn = require('../service/google.conn');
 const cookeryConn = require('../service/cookery.conn');
+
+router.get('/', async function (req, res, next) {
+
+    try {
+        res.redirect('/cookery/zipcode');
+    } catch (e) {
+        next(e);
+    }
+});
 router.get('/zipcode', async function (req, res, next) {
 
     try {
@@ -10,14 +19,13 @@ router.get('/zipcode', async function (req, res, next) {
         const payload = await requestCookeryZipcode(category, zipcode);
         const {lat: ziplat, lng: ziplng, city} = await requestGoogleZip(zipcode);
 
-        // console.log(ziplat)
         res.render('cookery/page_root', {
             title: 'Cookery Map API',
-            type: 'count',
+            search_type: 'zipcode',
             ziplat: ziplat,
             ziplng: ziplng,
             categories: categories,
-            zipcity:city,
+            zipcity: city,
             payload: payload
         })
     } catch (e) {
@@ -27,16 +35,28 @@ router.get('/zipcode', async function (req, res, next) {
 });
 router.get('/area', async function (req, res, next) {
 
-    const categories = ['chinese', 'mexican', 'japanese', 'fast', 'pizza', 'seafood', 'thai', 'italian', 'korean', 'american', 'sushi bar'];
-    const {category, lat, lng, radius} = req.query;
-    const payload = await requestCookeryArea(category, lat, lng, radius);
+    try{
+        const categories = ['chinese', 'mexican', 'japanese', 'fast', 'pizza', 'seafood', 'thai', 'italian', 'korean', 'american', 'sushi bar'];
+        const {category, lat, lng, radius} = req.query;
+        // console.log(req.query);
+        const payload = await requestCookeryArea(category, lat, lng, radius);
 
-    res.render('cookery/page_root', {
-        title: 'Cookery Map API',
-        type: 'area',
-        categories: categories,
-        payload: payload
-    });
+
+        const {lat: ziplat, lng: ziplng, city} = await requestGoogleLatlng(lat,lng);
+
+
+        res.render('cookery/page_root', {
+            title: 'Cookery Map API',
+            search_type: 'area',
+            ziplat: ziplat,
+            ziplng: ziplng,
+            categories: categories,
+            zipcity: city,
+            payload: payload
+        });
+    }catch (e) {
+        next(e);
+    }
 });
 
 async function requestCookeryZipcode(category = 'mexican', zipcode = '90017') {
@@ -48,6 +68,7 @@ async function requestCookeryZipcode(category = 'mexican', zipcode = '90017') {
     }
 }
 
+
 async function requestGoogleZip(zipcode = '91709') {
     try {
         return await googleConn.findFormattedAddress(zipcode);
@@ -56,6 +77,14 @@ async function requestGoogleZip(zipcode = '91709') {
     }
 }
 
+async function requestGoogleLatlng(lat = '33.122321', lng='-117.233221') {
+    try {
+
+        return await googleConn.findFormattedAddressWithLatlng(lat,lng);
+    } catch (e) {
+        throw e;
+    }
+}
 async function requestCookeryArea(category = 'mexican', lat = '35.334423', lng = '-117.223234', radius = 23) {
 
     try {
