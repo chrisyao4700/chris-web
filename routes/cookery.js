@@ -44,6 +44,8 @@ router.get('/area', async function (req, res, next) {
 
         const {lat: ziplat, lng: ziplng, city} = await requestGoogleLatlng(lat,lng);
 
+        console.log(`origin: (${lat},${lng})`);
+        console.log(`back: (${ziplat},${ziplng})`);
 
         res.render('cookery/page_root', {
             title: 'Cookery Map API',
