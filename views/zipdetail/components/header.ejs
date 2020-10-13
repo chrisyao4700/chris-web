@@ -1,0 +1,37 @@
+<section id="header">
+    <canvas id="c"></canvas>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="head-title text-center">Cookery Map Zipcode Detail</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h4 class="head-title text-center"><%= location_count > 0 ? 'Only Showing Limited Results' : 'No Related Result Found' %></h4>
+            </div>
+        </div>
+
+        <div class="row" style="<%= location_count > 0 ? '' : 'display:hidden' %>">
+            <% for(let i = 0; i < location_count;i++){ %>
+                <% const location = payload.locations[i]; %>
+                <div class="col-sm-4 pt-1 pb-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= location.name %></h5>
+                            <p class="card-text"><%= location.addr_str %></p>
+                            <form action="/cookery/reviews" method="get">
+                                <input name="identifier" value="<%= location.identifier %>" hidden>
+                                <button type="submit" class="btn btn-primary">Check Review</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+
+    </div>
+</section>

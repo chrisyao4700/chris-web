@@ -1,0 +1,33 @@
+<section id="header">
+    <canvas id="c"></canvas>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="head-title text-center">Cookery Map Reviews</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h4 class="head-title text-center"><%= payload.review_list.length > 0 ? 'Only Showing Limited Results' : 'No Related Result Found' %></h4>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row" style="<%= payload.review_list.length > 0 ? '' : 'display:hidden' %>">
+            <% for(let i = 0; i < payload.review_list.length;i++){ %>
+                <% const review = payload.review_list[i]; %>
+                <div class="col-sm-12 col-12 pt-2 pb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= review.score %> Star</h5>
+                            <p class="card-text"><%= review.content %></p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>

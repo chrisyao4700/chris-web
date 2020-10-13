@@ -11,16 +11,18 @@
             <div class="col-12 bg-half">
                 <ul class="nav nav-tabs ">
                     <li class="nav-item">
-                        <a class="nav-link <%= search_type==='zipcode'?'active':''%>" href="/cookery/zipcode">Zipcode Search</a>
+                        <a class="nav-link <%= search_type === 'zipcode' ? 'active' : '' %>" href="/cookery/zipcode">Zipcode
+                            Search</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= search_type==='area'?'active':''%>" href="/cookery/area">Coordinate Search</a>
+                        <a class="nav-link <%= search_type === 'area' ? 'active' : '' %>" href="/cookery/area">Coordinate
+                            Search</a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="row <%= search_type==='zipcode'?'':'hidden'%>">
+        <div class="row <%= search_type === 'zipcode' ? '' : 'hidden' %>">
             <div class="col-12 pt-5 pb-3 bg-half" id="zip">
                 <form name="cm-search" method="get" action="/cookery/zipcode">
                     <div class="row">
@@ -29,7 +31,7 @@
                                 <label class="badge badge-lg badge-primary" for="category_select">Category</label>
                                 <select class="form-control form-control-md" id="category_select" name="category">
                                     <% for(const ele of categories){ %>
-                                        <option <%= payload.query.category === ele?'selected="selected"':''%>><%= ele %></option>
+                                        <option <%= payload.query.category === ele ? 'selected="selected"' : '' %>><%= ele %></option>
                                     <% } %>
                                 </select>
                             </div>
@@ -51,14 +53,11 @@
                     </div>
 
 
-
-
-
                 </form>
             </div>
         </div>
 
-        <div class="row <%= search_type==='area'?'':'hidden'%>">
+        <div class="row <%= search_type === 'area' ? '' : 'hidden' %>">
             <div class="col-12 pt-5 pb-3 bg-half" id="area">
                 <form name="cm-search" method="get" action="/cookery/area">
                     <div class="row">
@@ -67,7 +66,7 @@
                                 <label class="badge badge-lg badge-primary" for="category_select">Category</label>
                                 <select class="form-control form-control-md" id="category_select" name="category">
                                     <% for(const ele of categories){ %>
-                                        <option <%= payload.query.category === ele?'selected="selected"':''%>><%= ele %></option>
+                                        <option <%= payload.query.category === ele ? 'selected="selected"' : '' %>><%= ele %></option>
                                     <% } %>
                                 </select>
                             </div>
@@ -102,6 +101,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </form>
             </div>
@@ -117,18 +118,30 @@
             <div class="col-6 pt-3 pb-3 bg-half">
                 <div class="card" style="width: 25rem;">
                     <div class="card-header">
-                        Result
+
+
+                        <form action="/cookery/zipdetail" style="display: inline" method="get">
+                            <input value="<%= payload.query.zipcode %>" name="zipcode" type="hidden">
+                            <input value="<%= payload.count %>" name="count" type="hidden">
+                            <button class="badge badge-warning" type="submit" style="text-align: right">Result Detail</button>
+                        </form>
                     </div>
+
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item <%=search_type === 'zipcode'?'':'hidden'%>">Zipcode: <%= payload.query.zipcode %></li>
-                        <li class="list-group-item <%=search_type === 'area'?'':'hidden'%>">Radius: <%= payload.query.radius %>
-                            (<%=`${payload.query.lat}, ${payload.query.lng}`%>)</li>
+                        <li class="list-group-item <%= search_type === 'zipcode' ? '' : 'hidden' %>">
+                            Zipcode: <%= payload.query.zipcode %></li>
+                        <li class="list-group-item <%= search_type === 'area' ? '' : 'hidden' %>">
+                            Radius: <%= payload.query.radius %>
+                            (<%= `${payload.query.lat}, ${payload.query.lng}` %>)
+                        </li>
                         <li class="list-group-item">Category: <%= payload.query.category %></li>
-                        <li class="list-group-item">Location: <%= zipcity%></li>
+                        <li class="list-group-item">Location: <%= zipcity %></li>
                         <li class="list-group-item"><b>Count: </b><%= payload.count %></li>
+
                     </ul>
                 </div>
             </div>
+
 
             <div class="col-6 pt-3 pb-3 bg-half">
                 <div id="map"></div>
