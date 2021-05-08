@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cookeryRouter = require('./routes/cookery');
+const animalRouter= require('./routes/animal.route');
 
 const app = express();
 
@@ -39,6 +40,9 @@ app.use('/', indexRouter);
 
 app.use('/users', usersRouter);
 app.use('/cookery', cookeryRouter);
+
+
+app.use('/animal-split',animalRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
