@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cookeryRouter = require('./routes/cookery');
-const animalRouter= require('./routes/animal.route');
+const animalRouter = require('./routes/animal.route');
+const animalApi = require('./routes/animal.api');
 
 const app = express();
 const cors = require('cors');
@@ -44,7 +45,8 @@ app.use('/users', usersRouter);
 app.use('/cookery', cookeryRouter);
 
 
-app.use('/animal-split',animalRouter);
+app.use('/animal-split', animalRouter);
+app.use('/animal-api', animalApi);
 app.use('/', express.static(path.join(`${__dirname}/../animal-split-frontend/build`)));
 
 // catch 404 and forward to error handler
