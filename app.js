@@ -43,6 +43,7 @@ app.use('/cookery', cookeryRouter);
 
 
 app.use('/animal-split',animalRouter);
+app.use('/', express.static(path.join(`${__dirname}/../animal-split-frontend/build`)));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
