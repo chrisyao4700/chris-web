@@ -1,17 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const redct = require('../service/redirect.service');
+
 router.get('*', (req, res, next) => {
     // if (!CLIENT_NAME) {
     //     return next('CLIENT NAME IS NOT SPECIFIED')
     // }
     // console.log('?');
-    const file_path = `${__dirname}/../../animal-split-frontend/build/index.html`;
-    res.sendFile(path.join(file_path));
+    // console.log(req._parsedUrl._raw);
+    const file_path = `${__dirname}/animal-split-frontend/build/index.html`;
+    // console.log(file_path);
+    res.sendFile(path.resolve(file_path));
 });
 
-router.use('/', express.static(path.join(`${__dirname}/../../animal-split-frontend/build`)));
-
+app.use(express.static(path.join(__dirname, `animal-split-frontend/build`)));
 
 module.exports = router;
