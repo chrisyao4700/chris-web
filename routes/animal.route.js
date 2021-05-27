@@ -13,6 +13,6 @@ router.get('*', (req, res, next) => {
     res.sendFile(path.resolve(file_path));
 });
 
-app.use(express.static(path.join(__dirname, `animal-split-frontend/build`)));
+router.use('/',express.static(path.join(__dirname, `animal-split-frontend/build`)));
 
 module.exports = router;
