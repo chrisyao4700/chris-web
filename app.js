@@ -28,6 +28,7 @@ if (process.env.perform === 'PRD') {
     });
 }
 
+app.use(express.static(path.join(__dirname, `/animal-split-frontend/build`)));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
