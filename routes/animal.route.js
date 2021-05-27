@@ -8,7 +8,7 @@ router.get('*', (req, res, next) => {
     // }
     // console.log('?');
     // console.log(req._parsedUrl._raw);
-    const file_path = `${__dirname}/animal-split-frontend/build/index.html`;
+    const file_path = `${__dirname}/../animal-split-frontend/build/index.html`;
     // console.log(file_path);
     res.sendFile(path.resolve(file_path));
 });
