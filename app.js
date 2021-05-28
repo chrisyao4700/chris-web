@@ -28,12 +28,13 @@ if (process.env.perform === 'PRD') {
     });
 }
 
-app.use(express.static(path.join(__dirname, `/animal-split-frontend/build`)));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, `/animal-split-frontend/build`)));
 app.use('/node_modules/bootstrap', express.static(__dirname + '/node_modules/bootstrap'));
 app.use('/node_modules/popper.js', express.static(__dirname + '/node_modules/popper.js'));
 app.use('/node_modules/jquery', express.static(__dirname + '/node_modules/jquery'));

@@ -73,3 +73,5 @@ typings/
 es_core_front
 
 # ignore docs
+
+/animal-split-frontend

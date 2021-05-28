@@ -6,7 +6,8 @@ router.get('*', (req, res, next) => {
 
     const file_path = `${__dirname}/../animal-split-frontend/build/index.html`;
 
-    console.log(path.resolve(file_path));
+    // console.log(req._parsedUrl._raw);
+
     res.sendFile(path.resolve(file_path));
 });
 
